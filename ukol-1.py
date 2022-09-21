@@ -8,6 +8,9 @@ baliky = {
 
 kodBaliku = input("Zadejte kód balíku: ")
 if kodBaliku in baliky:
-    print("Balík byl předán kurýrovi.")
+    if baliky[kodBaliku] == True:
+        print("Balík byl předán kurýrovi.")
+    else:
+        print("Balík zatím nebyl předán kurýrovi.")
 else:
-    print("Balík zatím nebyl předán kurýrovi.")
+    print("Balík neevidujeme.")
