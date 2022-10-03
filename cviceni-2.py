@@ -40,8 +40,6 @@ for book in books:
     sum_profit += profit_knihy
 print(sum_profit)
 
-"""
-
 school_report = {
     "Český jazyk": 1,
     "Anglický jazyk": 1,
@@ -105,3 +103,100 @@ for item in 'Dominika':
 
 for item in range(3):
     print('Knock')
+
+"""
+
+purchase_list = [
+    {"person": "Petr", "item": "Prací prášek", "value": 399},
+    {"person": "Ondra", "item": "Savo", "value": 80},
+    {"person": "Petr", "item": "Toaletní papír", "value": 65},
+    {"person": "Libor", "item": "Pivo", "value": 124},
+    {"person": "Petr", "item": "Pytel na odpadky", "value": 75},
+    {"person": "Míša", "item": "Utěrky na nádobí", "value": 130},
+    {"person": "Ondra", "item": "Toaletní papír", "value": 120},
+    {"person": "Míša", "item": "Pečící papír", "value": 30},
+    {"person": "Zuzka", "item": "Savo", "value": 80},
+    {"person": "Pavla", "item": "Máslo", "value": 50},
+    {"person": "Ondra", "item": "Káva", "value": 300}
+]
+
+total_value = 0
+sum_per_person = {}
+
+for item in purchase_list:
+    person = item["person"]
+    value = item["value"]
+    
+    if person in sum_per_person:
+        sum_per_person[person] += value
+    else:
+        sum_per_person[person] = value
+
+for person, value in sum_per_person.items():
+    total_value += value
+    print(f"{person} utratil(a) za společné nákupy {value} Kč.")
+
+average_value = total_value / len(sum_per_person)
+print(f"Průměrná hodnota na osobu je {round(average_value)} Kč.")
+
+
+for person, value in sum_per_person.items():
+    result = average_value - sum_per_person[person]
+    result_final = round(result)
+    if result >= 0:
+        print(f'{person} by mel doplatit {result_final}.')
+    elif result < 0:
+        print(f'{person} zaplatil o {-result_final} vice nez je prumerna platba.')
+
+
+
+books = [
+    {"title": "Zkus mě chytit", "sold": 4165, "price": 347, "year": 2018},
+    {"title": "Vrah zavolá v deset", "sold": 5681, "price": 299, "year": 2019},
+    {"title": "Zločinný steh", "sold": 2565, "price": 369, "year": 2019},
+]
+
+books_2019 = list(filter(lambda item: item["year"] == 2019, books))
+print(books_2019)
+
+
+sum_pop_reg = {}
+pop_value = 0
+for stat in staty:
+    subregion = stat['subregion']
+    population = stat['population']
+    region = stat['region']
+    if subregion in sum_pop_reg:
+        sum_pop_reg[subregion] += population
+    else:
+        sum_pop_reg[subregion] = population
+
+
+for subregion, population in sum_pop_reg.items():
+    if subregion in stat['region']:
+        pop_value += population
+        print(sum_pop_reg)
+
+
+if value in list:
+    for stat in staty:
+        if stat['region'] == value:
+            print(stat['name'])
+            dict_sub_reg = {stat['subregion']}
+
+sum_pop_reg = {}
+pop_value = 0
+for stat in staty:
+    subregion = stat['subregion']
+    population = stat['population']
+    region = stat['region']
+    if subregion in sum_pop_reg:
+        sum_pop_reg[subregion] += population
+    else:
+        sum_pop_reg[subregion] = population
+
+
+for subregion, population in sum_pop_reg.items():
+    if subregion in stat['region']:
+                pop_value += population
+                print(sum_pop_reg)
