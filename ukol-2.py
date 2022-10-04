@@ -497,27 +497,18 @@ for stat in staty:
         regionList.append(stat['region'])
 #print(regionList)
 
+sum_pop_reg = {}
 for stat in staty:
     if stat['region'] == input:
         print(stat['name'])
+        subregion = stat['subregion']
+        population = stat['population']
+        if subregion in sum_pop_reg:
+            sum_pop_reg[subregion] += population
+        else:
+            sum_pop_reg[subregion] = population
     elif input not in regionList:
         print('Neznamy region')
         break
- 
-
-subregionList = []
-for stat in staty:
-    if stat['region'] == input and stat['subregion'] not in subregionList:
-        subregionList.append(stat['subregion'])
-#print(subregionList)
-
-sum_pop_reg = {}
-for stat in staty:
-    subregion = stat['subregion']
-    population = stat['population']
-    if subregion in sum_pop_reg:
-        sum_pop_reg[subregion] += population
-    else:
-        sum_pop_reg[subregion] = population
-
 print(sum_pop_reg)
+
