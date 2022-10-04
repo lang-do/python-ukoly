@@ -1,6 +1,3 @@
-from typing import AsyncIterable
-
-
 staty = [
     {'name': 'Afghanistan', 'capital': 'Kabul', 'region': 'Asia', 'subregion': 'Southern Asia', 'population': 27657145,
      'area': 652230.0, 'gini': 27.8},
@@ -492,27 +489,29 @@ staty = [
     {'name': 'Zimbabwe', 'capital': 'Harare', 'region': 'Africa', 'subregion': 'Eastern Africa', 'population': 14240168,
      'area': 390757.0}]
 
-list = [value for stat in staty 
-        for value in stat.values()]
+input = input('Jaky region Vas zajima?')
 
-value = input('Jaky region Vas zajima?')
+regionList = []
+for stat in staty:
+    if stat['region'] not in regionList:
+        regionList.append(stat['region'])
+#print(regionList)
 
-if value in list:
-    for stat in staty:
-        if stat['region'] == value:
-            print(stat['name'])
-            dict_sub_reg = {stat['subregion']}
-else:
-    print('Neznamy region')
+for stat in staty:
+    if stat['region'] == input:
+        print(stat['name'])
+    elif input not in regionList:
+        print('Neznamy region')
+        break
+ 
 
 subregionList = []
-for v in staty:
-    if v['region'] == value:
-        subregionList.append(v['subregion'])
+for stat in staty:
+    if stat['region'] == input and stat['subregion'] not in subregionList:
+        subregionList.append(stat['subregion'])
 #print(subregionList)
 
 sum_pop_reg = {}
-pop_value = 0
 for stat in staty:
     subregion = stat['subregion']
     population = stat['population']
@@ -521,10 +520,4 @@ for stat in staty:
     else:
         sum_pop_reg[subregion] = population
 
-for subregion, population in sum_pop_reg.items():
-    if subregion in stat['region']:
-                pop_value += population
-                print(sum_pop_reg)
-
-
-
+print(sum_pop_reg)
