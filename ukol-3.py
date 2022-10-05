@@ -15,3 +15,5 @@ if validate_number(True):
 	num_messages = math.ceil(num_char / 180)
 	price = num_messages * 3
 	print(f'Cena zpravy je {price} Kč.')
+
+#print(math.ceil(4/3))
