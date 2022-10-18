@@ -8,12 +8,10 @@ def validate_number(tel_num=False):
 		return True
 	else:
 		print('Chybny format telefonniho cisla.')
-		
-if validate_number(True):
-	message = input('Zadejte text zpravy: ')
-	num_char = len(message)
-	num_messages = math.ceil(num_char / 180)
-	price = num_messages * 3
-	print(f'Cena zpravy je {price} Kč.')
-
-#print(math.ceil(4/3))
+def price(message, tel_num):
+    message = input('Zadejte text zpravy: ')
+    num_char = len(message)
+    num_messages = math.ceil(num_char / 180)
+    if tel_num:
+        return num_messages * 3
+print(f'Cena zpravy je {price(input, True)} Kč.')
