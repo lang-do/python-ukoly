@@ -86,6 +86,5 @@ teploty = [
     [1.0, 3.2, 2.1, -2.0],
     [0.4, 2.7, 1.3, -2.8]
 ]
-
 soucty = [sum(teplota) for teplota in teploty]
 print(soucty)
