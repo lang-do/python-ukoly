@@ -1,0 +1,65 @@
+150
+142
+166
+166
+150
+166
+142
+142
+166
+166
+150
+150
+
+with open('vykaz.txt', 'r', encoding='utf-8') as file:
+    vykaz = file.readlines()
+#print(vykaz)
+mzda = int(input('Ohodnotte praci mzdou: '))
+hodiny_rok = [sum(int(hodiny)) for hodiny in vykaz]
+mzda_rok = [hodiny_rok*mzda for hodiny_rok in vykaz]
+print(mzda_rok)
+mzda_mesic = [mzda_rok/12 for hodiny in vykaz]
+print(mzda_mesic)
+
+with open(
+    "uvod-do-pythonu-DA/04-soubory-cteni-a-zapis/vykaz.txt", encoding="utf-8"
+) as vstup:
+    radky = vstup.readlines()
+
+hodinova_mzda = 100
+# odpracovane_hodiny = 0
+
+odpracovane_hodiny = sum(int(radek) for radek in radky)
+print(odpracovane_hodiny)
+celkova_vyplata = odpracovane_hodiny * hodinova_mzda
+prumerna_vyplata = round(celkova_vyplata / len(radky))
+
+print(
+    f"Rocni vyplata je {celkova_vyplata}. \nPrumerna mesicni vyplata je {prumerna_vyplata}"
+)
+
+# for radek in radky:
+#     odpracovane_hodiny += int(radek)
+#     celkova_vyplata = odpracovane_hodiny * hodinova_mzda
+#     prumerna_vyplata = round(celkova_vyplata / len(radky))
+
+with open(
+    "uvod-do-pythonu-DA/04-soubory-cteni-a-zapis/cteni-souboru/vykaz.txt",
+    encoding="utf-8",
+) as vstup:
+    radky = vstup.readlines()
+
+# hodinova_mzda = 100
+
+mesicni_vyplata = [int(radek) * hodinova_mzda for radek in radky]
+
+# print(mesicni_vyplata)
+mesicni_vyplata = [(str(mesic) + "\n") for mesic in mesicni_vyplata]
+# print(mesicni_vyplata)
+
+with open(
+    "uvod-do-pythonu-DA/04-soubory-cteni-a-zapis/zapis-do-souboru/rozepsana-vyplata.txt",
+    mode="w",
+    encoding="utf-8",
+) as vystup:
+    vystup.writelines(mesicni_vyplata)
